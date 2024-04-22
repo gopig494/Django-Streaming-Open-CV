@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Streaming{% endblock %}</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link href="{% static 'streaming/css/index.css' %}" type="text/css" rel="stylesheet">
+        {% block links %}{% endblock%}
+    </head>
+    <body>
+        {% if header == 1 %}
+            <header>
+                <nav class="navbar">
+                    <div class="container">
+                    <a class="navbar-brand" href="/">
+                            <img id="web-logo" src="{% static "streaming/images/streaming_title.png" %}">
+                    </a>
+                    <form method="GET">
+                        <input type="text" class="searchTxt" name="search_txt" value="{{ search_txt }}" placeholder="Search videos...">
+                        <button class="submitBtn" type="submit">Search</button>
+                    </form>
+                    <div class="navbar-links">
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/streaming/create_video/">Create Video</a></li>
+                            <li><a href="/streaming/logout/">Log Out</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                </nav>
+            </header>
+            
+        {% endif %}
+        <main >
+            {% block content %}
+            {% endblock %}
+            {% if messages %}
+                <ul class="success-messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        <script>
+                            setTimeout(function() {
+                                document.querySelector('.{{ message.tags }}').remove();
+                                document.querySelector('.success-messages').remove();
+                            }, 500);
+                        </script> 
+                        <span class="{{ message.tags }}">{{ message }}</span>
+                    </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </main>
+        <footer>
+            <p> Streaming Website. All rights reserved &copy; 2024.</p>
+        </footer>
+        {% block scripts %}{% endblock %}
+    </body>
+</html>

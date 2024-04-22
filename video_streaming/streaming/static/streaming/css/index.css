@@ -1,0 +1,132 @@
+.navbar {
+    /* background-color:#7e2020; */
+    background: #112356;
+    color: #fff;
+    padding: 10px 15px;
+  }
+
+  #web-logo{
+    height: 59px;
+    border-radius: 15px;
+  }
+  
+  .navbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .navbar-brand {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    margin-left: 10px;
+  }
+  
+  .navbar-links ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .navbar-links{
+    margin-right:15px;
+  }
+
+  .navbar-links ul li {
+    display: inline;
+    margin-left: 20px;
+  }
+  
+  .navbar-links ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+  }
+  
+  .navbar-links ul li a:hover {
+    color: #ccc;
+  }
+  
+  footer p{
+    text-align: center;
+    height: 55px;
+    background: #fff;
+    padding-top: 20px;
+    margin: 0;
+}
+ 
+main{
+  min-height: 500px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f2f5;
+  height: calc(100vh - 55px);
+  overflow: scroll;
+}
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.searchTxt{
+  height: 34px;
+  width: 220px;
+  padding: 0 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.searchTxt:focus{
+  outline: none;
+}
+
+.submitBtn{
+  height: 35px;
+  margin-left: 15px;
+  width: 80px;
+  border-radius: 5px;
+  border: none;
+  font-size: 14px;
+
+}
+
+.not-found{
+  display: grid;
+    place-content: center;
+    height: 100vh;
+    width: 100%;
+}
+
+.not-found > h6{
+  font-size: 20px;
+  font-weight: 600;
+}
+
+
+.success-messages {
+  position: fixed;
+  /* top: 20px; */
+  right: 20px;
+  background-color: #4CAF50;
+  color: white;
+  padding: 15px;
+  border-radius: 5px;
+  /* display: none; */
+  animation: fadeInOut 0.5s ease-in-out;
+  list-style: none;
+}
+
+/* CSS animation for fade in and fade out */
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+

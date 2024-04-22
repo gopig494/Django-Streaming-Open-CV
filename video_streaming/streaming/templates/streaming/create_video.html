@@ -1,0 +1,31 @@
+{% extends "streaming/base.html" %}
+{% load static %}
+    {% block links %}
+        <link rel="stylesheet" href="{% static "streaming/css/content.css" %}" type="text/css">
+    {% endblock %}
+  {% block content %}
+  <div class="video_container">
+    <div class="sub_container">
+        {% if method == 'POST' %}
+            <form method="POST" action="/streaming/create_video/" class="create_video_form" enctype="multipart/form-data">
+        {% else %}
+            <form method="POST" action="/streaming/update_video/{{video_id}}/" class="create_video_form" enctype="multipart/form-data">
+        {% endif %}
+            {% csrf_token %}
+                {{ form.name.label }}
+                {{ form.name }}
+                {{ form.name.errors }}
+                {{ form.video_url.label }}
+                {{ form.video_url }}
+                {{ form.video_url.errors }}
+            <p class="create_video_btn">
+                {% if method == 'POST' %}
+                    <input type='submit' name='submit' value = "Create">
+                {% else %}
+                    <input type='submit' name='submit' value = "Update">
+                {% endif %}
+            </p>
+        </form>
+        </div>
+    </div>
+  {% endblock %}

@@ -1,0 +1,25 @@
+{% extends "streaming/base.html" %}
+{% load static %}
+    {% block links %}
+        <link rel="stylesheet" href="{% static "streaming/css/form.css" %}" type="text/css">
+    {% endblock %}
+    {% block content %}
+    <div class="signup-container">
+        <div class="stramming-title">
+            <img src="{% static "streaming/images/streaming_title.png" %}" alt="title-img-not-found">
+        </div>
+        <div class="container">
+            <h1>Create a new account</h1>
+            <form action="/streaming/signup/" method="POST" id="singup">
+                {% csrf_token %}
+                {{signup_form.as_p}}
+                <p class="sign-up-btn">
+                    <input type='submit' name='submit' value = "Sign Up">
+                </p>
+                <div class="already-account">Already have an account? <a href="/streaming/login/">Log in</a></div>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+
+
